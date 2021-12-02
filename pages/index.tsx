@@ -1,4 +1,3 @@
-import { MouseEventHandler } from 'hoist-non-react-statics/node_modules/@types/react';
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { useState } from 'react'

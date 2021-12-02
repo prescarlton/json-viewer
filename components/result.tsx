@@ -1,10 +1,8 @@
-import { MouseEventHandler } from "hoist-non-react-statics/node_modules/@types/react";
-
 export default function Result(props: { data: Object, indentSize: number, id: number, removeResultFromList: Function }) {
     let { data, indentSize, id, removeResultFromList } = props;
     // setup data nice 'n purdy
     let prettyData = JSON.stringify(data, null, indentSize);
-    const copyDataToClipboard: MouseEventHandler = () => {
+    const copyDataToClipboard = () => {
         navigator.clipboard.writeText(prettyData)
         .then(()=>{
             alert("Successfully saved formatted JSON to clipboard.")
