@@ -9,25 +9,39 @@ body {
     color: $body-color;
 }
 
+a {
+    color: $highlight;
+}
+
 .container {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
-main {
-    padding: 5rem;
+.section {
+    padding: 5rem 20%;
     flex: 1;
     display: flex;
     flex-direction: column;
+    width: 100%;
+
+    &:nth-of-type(even) {
+        background-color: $onyx;
+        color: $white;
+    }
+
+    p {
+        font-size: 1.2rem;
+        margin: .25rem 0;
+    }
 
     .header {
         display: flex;
         flex-direction: column;
-        width: 40%;
+        width: 50%;
 
         h1 {
             color: $highlight;
@@ -52,7 +66,7 @@ main {
             min-height: 316px;
             overflow-y: scroll;
             padding: .25rem;
-            font-family: 'Source Code Pro';
+            font-family: $mono-font;
 
             &:focus {
                 outline: none;
@@ -63,7 +77,7 @@ main {
             position: absolute;
             bottom: 0;
             right: 0;
-            margin: .25rem;
+            margin: .25rem 1.25rem;
             background-color: $highlight;
             color: $white;
             padding: .5rem 1.2rem;
@@ -77,6 +91,66 @@ main {
                 cursor: pointer;
                 background-color: $highlight-dark;
             }
+        }
+    }
+
+}
+
+.result {
+    padding: 5rem 20%;
+    display: flex;
+    width: 100%;
+    background-color: $onyx;
+    flex-direction: row;
+    color: $white;
+    justify-content: space-evenly;
+
+    .textarea-wrapper {
+        display: flex;
+
+        textarea {
+            resize: none;
+            border-radius: 5px;
+            padding: .25rem;
+            font-family: $mono-font;
+            margin-right: .5rem;
+
+            &:focus {
+                outline: 1px solid $highlight;
+            }
+        }
+
+        .button-controls {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: .2s all;
+
+            div {
+                margin-bottom: .5rem;
+                width: 2rem;
+                height: 2rem;
+                background-color: $highlight;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                &.copy {
+                    background-color: $green;
+                }
+
+                &.delete {
+                    background-color: $red;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        & .button-controls {
+            opacity: 1 !important;
         }
     }
 
